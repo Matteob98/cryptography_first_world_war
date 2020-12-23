@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1496496814 source:c:\users\matteo\desktop\prova_progetto\resource.rc
+	<windows.h>
+	"resource.h"
+
+1495880973 c:\users\matteo\desktop\prova_progetto\resource.h
+
+1498165012 source:c:\users\matteo\desktop\prova_progetto\main.cpp
+	<windows.h>
+	<tchar.h>
+	<Windowsx.h>
+	"resource.h"
+	<string>
+	<fstream>
+	<time.h>
+	<conio.h>
+	"Algoritmi/ADFGVX.h"
+	"Algoritmi/ADFMX.h"
+	"Algoritmi/CBD.h"
+	"Algoritmi/Cifr123.h"
+	"Algoritmi/CMT.h"
+	"Algoritmi/PlayfairCipher.h"
+	"Algoritmi/RulloJefferson.h"
+	"Algoritmi/CampAust.h"
+
+1499112937 c:\users\matteo\desktop\prova_progetto\algoritmi\adfgvx.h
+	<iostream>
+	<string>
+	<algorithm>
+	<conio.h>
+
+1496496504 c:\users\matteo\desktop\prova_progetto\algoritmi\adfmx.h
+	<iostream>
+	<string>
+	<algorithm>
+	<conio.h>
+
+1496496533 c:\users\matteo\desktop\prova_progetto\algoritmi\cbd.h
+	<iostream>
+	<string>
+	<algorithm>
+	<stdlib.h>
+
+1496496813 c:\users\matteo\desktop\prova_progetto\algoritmi\cifr123.h
+	<iostream>
+	<fstream>
+	<string.h>
+	<algorithm>
+
+1496496734 c:\users\matteo\desktop\prova_progetto\algoritmi\cmt.h
+	<iostream>
+	<string>
+	<algorithm>
+	<time.h>
+
+1496496813 c:\users\matteo\desktop\prova_progetto\algoritmi\playfaircipher.h
+	<iostream>
+	<string>
+	<algorithm>
+
+1496496814 c:\users\matteo\desktop\prova_progetto\algoritmi\rullojefferson.h
+	<iostream>
+	<string>
+	<algorithm>
+	<fstream>
+	<time.h>
+
+1496496533 c:\users\matteo\desktop\prova_progetto\algoritmi\campaust.h
+	<iostream>
+	<string>
+	<stdlib.h>
+	<algorithm>
+

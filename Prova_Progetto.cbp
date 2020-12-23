@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Crittografia WWI" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/CrittografiaWWI" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="gdi32" />
+			<Add library="user32" />
+			<Add library="kernel32" />
+			<Add library="comctl32" />
+		</Linker>
+		<Unit filename="Algoritmi/ADFGVX.h" />
+		<Unit filename="Algoritmi/ADFMX.h" />
+		<Unit filename="Algoritmi/CBD.h" />
+		<Unit filename="Algoritmi/CMT.h" />
+		<Unit filename="Algoritmi/CampAust.h" />
+		<Unit filename="Algoritmi/Cifr123.h" />
+		<Unit filename="Algoritmi/PlayfairCipher.h" />
+		<Unit filename="Algoritmi/RulloJefferson.h" />
+		<Unit filename="Bandiera_Francia.bmp" />
+		<Unit filename="Bandiera_GB.bmp" />
+		<Unit filename="Bandiera_Germania_ADFGVX.bmp" />
+		<Unit filename="Bandiera_Germania_ADFMX.bmp" />
+		<Unit filename="Bandiera_Italia_123.bmp" />
+		<Unit filename="Bandiera_Italia_CMT.bmp" />
+		<Unit filename="Bandiera_USA.bmp" />
+		<Unit filename="Frase_Sfondo.bmp" />
+		<Unit filename="LED_DEFAULT.bmp" />
+		<Unit filename="LED_OFF.bmp" />
+		<Unit filename="LED_ON.bmp" />
+		<Unit filename="Logo.ico" />
+		<Unit filename="Resource.RC">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="Rullo.bmp" />
+		<Unit filename="Rullo_Jefferson.txt" />
+		<Unit filename="Sfondo1.bmp" />
+		<Unit filename="Tavola.txt" />
+		<Unit filename="main.cpp" />
+		<Unit filename="resource.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

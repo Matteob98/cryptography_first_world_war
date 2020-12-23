@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Release" />
+	<File name="Algoritmi\RulloJefferson.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="679" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="77" topLine="419" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\CBD.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10594" topLine="500" />
+		</Cursor>
+	</File>
+	<File name="Resource.RC" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22975" topLine="181" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\ADFGVX.h" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3164" topLine="131" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\CMT.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="574" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11954" topLine="540" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="969" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="66450" topLine="1666" />
+		</Cursor>
+	</File>
+	<File name="resource.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5078" topLine="129" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\PlayfairCipher.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6718" topLine="271" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\ADFMX.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="60" topLine="536" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\Cifr123.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="94" topLine="136" />
+		</Cursor>
+	</File>
+	<File name="Algoritmi\CampAust.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="85" topLine="238" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

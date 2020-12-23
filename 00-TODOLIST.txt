@@ -1,0 +1,14 @@
+V	RULLO DI JEFFERSON
+	-Risolvere errore per testi piu lunghi di 25 caratteri
+V	PLAYFAIR CIPHER
+-CIFRA 1 2 3 (Seguire commenti sul codice)
+-CERCARE ALTRI CIFRARI (AUSTRIA, RUSSIA)
+
+-CONTROLLARE IN TUTTI I CIFRARI LA COSA DEL I/J V/W PER EVITARE DI PERDERE LETTERE (in Ins_Testo, Ins_Chiave)
+
+-Quando creo il programma definitivo ricordarsi le cifrario di jefferson che quando modifico il rullo le modifiche devono essere riportate sia nel rullo di cifratura che di decifratura
+-Nel programma definitivo potrebbe sorgere il problema nei cifrari che hanno l'alfabeto con Alf_Flag perché i flag non vengono mai riportati a false se si cerca di fare più cifrature consecutive.
+-Per l'123 ci sta il form LED su codeblock
+
+-IMPORTANTE SULLA TESINA
+	Aggiungere il metodo di comunicazione della chiave (santi sul calendario, pizzini, nome del ricevente, nome del 	luogo dove si trova il ricevente ecc.)

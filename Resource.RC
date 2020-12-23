@@ -1,0 +1,218 @@
+/*
+---------------------------
+Codice dell'interfaccia grafica del progetto
+---------------------------
+*/
+
+#include <windows.h>
+#include "resource.h"
+
+FinestraHome DIALOG DISCARDABLE 0, 0,  Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "HOME"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "", Static_Sfondo1, "STATIC", SS_BITMAP, Fin_Weight-266, Fin_Height-(Fin_Height-65), 0, 0 //La dimensione la da l'immagine
+    CONTROL "", Static_Sfondo2, "STATIC", SS_BITMAP, Fin_Weight/3, Fin_Height/2, 0, 0
+    CONTROL "Cifrario Campale Germanico - ADFMX", Bn_ADFMX, "BUTTON", BN_CLICKED|BS_BITMAP, 60, 30, 180, 35 //Bn_ADFMX
+    CONTROL "Cifrario Campale Germanico - ADFGVX", Bn_ADFGVX, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 290, 30, 180, 35 //Bn_ADFGVX
+    CONTROL "Cifrario Militare Tascabile", Bn_CMT, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 60, 95, 180, 35 //Bn_CMT
+    CONTROL "Cifrario 123", Bn_123, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 290, 95, 180, 35 //Bn_123
+    CONTROL "Cifrario Campale Austriaco", Bn_CampAust, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 60, 160, 180, 35 //Bn_CampAust
+    CONTROL "Rullo di Jefferson", Bn_Jefferson, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 60, 225, 180, 35 //Bn_Jefferson
+    CONTROL "Playfair Cipher", Bn_Playfair, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 60, 290, 180, 35 //Bn_Playfair
+    CONTROL "Cifrario Bifido di Delastelle", Bn_CBD, "BUTTON", BS_PUSHBUTTON|BN_CLICKED|BS_BITMAP , 60, 355, 180, 35 //Bn_CBD
+END
+
+Fin_Cifr_ADFMX DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+//STYLE DS_MODALFRAME | WS_OVERLAPPEDWINDOW | WS_CAPTION | WS_SYSMENU
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_ADFMX, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    CONTROL "Testo in chiaro", Id_Static_Lb1, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Cifra_ADFMX, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|ES_WANTRETURN, 0+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Testo criptato", Id_Static_Lb2, "STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Decifra_ADFMX, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL|ES_WANTRETURN , Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Annulla", Bn_Clear_ADFMX, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2+Fin_Weight/12+Fin_Weight/3-80, 0+Fin_Height/8+Fin_Height/6+40, 80, 25 //
+    CONTROL "Cripta --->", Bn_Cifra_ADFMX, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+20, 80, 25 //
+    CONTROL "<--- Decripta", Bn_Decifra_ADFMX, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+60, 80, 25 //
+    CONTROL "Chiave 1", Id_Static_Lb3, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+40, 40, 30 //
+    CONTROL "", Tb_Chiave_ADFMX, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL , 0+Fin_Weight/12+40,  0+Fin_Height/8+Fin_Height/6+40, Fin_Weight/3-40, 30
+    CONTROL "Chiave 2", Id_Static_Lb4, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+90, 40, 30 //
+    CONTROL "", Tb_Chiave_TC_ADFMX, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL , 0+Fin_Weight/12+40, 0+Fin_Height/8+Fin_Height/6+90, Fin_Weight/3-40, 30
+    CONTROL "Il cifrario ADFMX fu utilizzato dall'esercito tedesco fino al marzo 1918.\n\nQuesta versione 5x5 ricorda il Playfair Cipher e il cifrario bifido di Delastelle; ogni lettera del chiaro viene cifrata con un gruppo di due lettere, le quali vengono poi sottoposte a una trasposizione.\n\nLa cifra campale germanica usa, come indicatori di riga e di colonne, cinque lettere i cui segnali dell'alfabeto telegrafico Morse sono inconfondibili tra loro (a, d, f, m, x) in modo da evitare errori di ricezione radio. Di qui il nome di cifrario ADFMX.\n\nLa scacchiera di 25 lettere, veniva riempita nelle prime caselle con la parola chiave, abolendo le eventuali lettere ripetute, ed era completata con le rimanenti lettere nel loro ordine alfabetico.\n\nIl cifrato così ottenuto viene poi sottoposto a una trasposizione a chiave: sono innanzitutto inseriti ordinatamente nella seconda matrice, formata da una chiave mnemonica nella prima linea e da una chiave numerica nella seconda, le cui cifre corrispondono all'ordine alfabetico della lettera sovrastante.",
+             Id_Static_Descrizione_ADFMX, "STATIC", SS_LEFT|WS_BORDER, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+150, Fin_Weight-Fin_Weight/6, Fin_Weight/8 //
+END
+
+Fin_Cifr_Std DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_Std, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    CONTROL "Testo in chiaro", Id_Static_Lb1, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Cifra_Std, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|ES_WANTRETURN, 0+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Testo criptato", Id_Static_Lb2, "STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Decifra_Std, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL|ES_WANTRETURN , Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Annulla", Bn_Clear_Std, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2+Fin_Weight/12+Fin_Weight/3-80, 0+Fin_Height/8+Fin_Height/6+40, 80, 25 //
+    CONTROL "Cripta --->", Bn_Cifra_Std, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+20, 80, 25 //
+    CONTROL "<--- Decripta", Bn_Decifra_Std, "BUTTON", BS_PUSHBUTTON|BN_CLICKED,  Fin_Weight/2-40, 0+Fin_Height/8+60, 80, 25 //
+    CONTROL "Chiave", Id_Static_Lb3, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+40, 40, 10 //
+    CONTROL "", Tb_Chiave_Std, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL ,  0+Fin_Weight/12+40,  0+Fin_Height/8+Fin_Height/6+40, Fin_Weight/3-40, 30
+    CONTROL "", Id_Static_Descrizione_Std, "STATIC", SS_LEFT|WS_BORDER, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+150, Fin_Weight-Fin_Weight/6, Fin_Weight/8 //
+END
+
+Fin_Cifr_CampAust DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_CampAust, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    CONTROL "Testo in chiaro", Id_Static_Lb1, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Cifra_CampAust, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|ES_WANTRETURN, 0+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Testo criptato", Id_Static_Lb2, "STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Decifra_CampAust, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL|ES_WANTRETURN , Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Annulla", Bn_Clear_CampAust, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2+Fin_Weight/12+Fin_Weight/3-80, 0+Fin_Height/8+Fin_Height/6+40, 80, 25 //
+    CONTROL "Cripta --->", Bn_Cifra_CampAust, "BUTTON", BS_PUSHBUTTON|BN_CLICKED,Fin_Weight/2-40, 0+Fin_Height/8+20, 80, 25 //
+    CONTROL "<--- Decripta", Bn_Decifra_CampAust, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+60, 80, 25 //
+    CONTROL "Il cifrario fu utilizzato dall'impero austro-ungarico negli ultimi anni della prima guerra mondiale.\n\nE' un codice a repertorio basato su un dizionario di 1000 parole cifrate in gruppi di 3 numeri, poi comunicate a gruppi di 5.\n\nIl cifrario fu forzato dall'ufficio cifra italiano nel 1918 a causa di un errore di un responsabile alla cifratura austriaco che, per evitare di cercare le parole nel repertorio, iniziò a cifrare lettera per lettera. Questo grave errore permise agli italiani di decriptare tutte le comunicazioni radio nelle ultime fasi della guerra.\n\nIl cifrario qui riproposto non contiene tutte le 1000 parole del repertorio (che non sono mai state pubblicate) ma solo le lettere dell'alfabeto.",
+            Id_Static_Descrizione_CampAust, "STATIC", SS_LEFT|WS_BORDER, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+150, Fin_Weight-Fin_Weight/6, Fin_Weight/8 //
+
+END
+/*
+Fin_Reindirizzamento_123 DIALOG DISCARDABLE  0, 0, Fin_Weight/2, Fin_Height-Fin_Height/4
+STYLE DS_MODALFRAME | WS_OVERLAPPEDWINDOW | WS_CAPTION | WS_SYSMENU
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<-", Bn_Back_123, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 10, 10, 20, 20 //
+    CONTROL "ALGORITMO 123 \n PER \n TELEGRAFO OTTICO", Id_Static_123, "STATIC", SS_CENTER, Fin_Weight/4-50, 0+Fin_Height/8, 100, 40 //
+    CONTROL "Cifra", Bn_Reinderizza_Cifra_123, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/8-40, Fin_Height/4, 80, 30 //
+    CONTROL "Decifra", Bn_Reinderizza_Decifra_123, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/8*3-40, Fin_Height/4, 80, 30 //
+END*/
+
+Fin_Reindirizzamento_123 DIALOG DISCARDABLE  0, 0, 239, 66 //Dimensioni standard
+STYLE DS_MODALFRAME | WS_POPUP | DS_CENTER |WS_CAPTION | WS_SYSMENU | SS_BITMAP
+CAPTION "Effettua la tua scelta..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cifra",Bn_Reinderizza_Cifra_123,174,18,50,14
+    PUSHBUTTON      "Decifra",Bn_Reinderizza_Decifra_123,174,35,50,14
+    GROUPBOX        "Algoritmo 123 per cifrario ottico.",Id_Static_123,7,7,225,52
+    CTEXT           "\nScegli cosa vuoi fare prima di proseguire", Id_Static2_123,16,18,144,33
+END
+
+Fin_Decifra_123 DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_123_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    GROUPBOX    "Inserisci il testo criptato", Id_GROUPBOX123_Decifra,Fin_Weight/4-80, 0+Fin_Height/8 + Fin_Height/6-65, 160, 165
+    CONTROL "", Tb_TCifrato_123_Decifra, "EDIT", SS_CENTER|WS_BORDER|SS_NOTIFY|ES_NUMBER|ES_READONLY|ES_WANTRETURN , Fin_Weight/4-65, 0+Fin_Height/8 + Fin_Height/6-50, 130, 30 //Edit_LimitText(HWND hwndCtl,int  cchMax)
+    CONTROL "Testo criptato", Id_Static_Lb1, "STATIC", SS_LEFT, Fin_Weight/2, 0+Fin_Height/8 -40, 100, 10
+    CONTROL "", Id_Static_123_TestoSottoposto_Decifra, "STATIC", SS_LEFT|WS_BORDER|SS_NOTIFY|WS_VSCROLL , Fin_Weight/2, 0+Fin_Height/8-20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "1", Bn_1_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4-65, 0+Fin_Height/8 + Fin_Height/6, 30, 30 //
+    CONTROL "2", Bn_2_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4-15, 0+Fin_Height/8 + Fin_Height/6, 30, 30 //
+    CONTROL "3", Bn_3_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4+35, 0+Fin_Height/8 + Fin_Height/6, 30, 30 //
+    CONTROL "<-", Bn_Undo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4-65, 0+Fin_Height/8 + Fin_Height/6+50, 30, 30 //
+    CONTROL "Sottoponi", Bn_Sottoponi_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4-15, 0+Fin_Height/8 + Fin_Height/6+50, 80, 30 //
+    CONTROL "Decripta", Bn_Decifra_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2 + Fin_Weight/6 - 60, 0+Fin_Height/8 + Fin_Height/6 , 80, 30 //
+    CONTROL "Annulla", Bn_Cancella_Decifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-110, 0+Fin_Height/8 + Fin_Height/6+70, 80, 30 //
+    CONTROL "Testo decriptato", Id_Static_Lb2, "STATIC", SS_LEFT, Fin_Weight/2,  0+Fin_Height/8 + Fin_Height/6 + 40, 100, 10
+    CONTROL "", Id_Static_123_Decifra, "STATIC", SS_LEFT|WS_BORDER|SS_NOTIFY|WS_VSCROLL , Fin_Weight/2, 0+Fin_Height/8 + Fin_Height/6 + 60 , Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Questo cifrario fu usato dal ministero della guerra italiano fino al 1917.\n\nSi tratta di un codice a repertorio ordinato che fa uso solo di tre cifre 1, 2, 3 combinate in gruppi da 1 a 5 cifre; il cifrario è destinato all'uso con telegrafo ottico, per segnalazioni visive con bandiere o lanterne. Alzando 1, 2 o 3 lanterne si segnala il numero corrispondente.\n\nE' molto interessante il fatto che lo stesso cifrario si trova in un documento austro-ungarico del 1915. Il fascicolo austriaco contiene una copia identica delle tabelle del cifrario con istruzioni. Questo fatto si può spiegare in relazione al fatto che Italia e Austria fino al 1915 furono alleate nella Triplice Alleanza e, colpevolemente, la segretezza dei cifrari non fu rispettata.",
+    Id_Static_Descrizione_123_Decifra, "STATIC", SS_LEFT|WS_BORDER, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+150, Fin_Weight-Fin_Weight/6, Fin_Weight/8 //
+END
+
+Fin_Cifra_123 DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_123_Cifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    CONTROL "Seleziona dalla lista le parole da cifrare", Id_Static_Lb1, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8-20, 200, 10 //
+    CONTROL "Seleziona", List_Tavola_Cifra, "LISTBOX", WS_VSCROLL|WS_HSCROLL|LBS_NOTIFY|WS_BORDER|LBS_WANTKEYBOARDINPUT, 0+Fin_Weight/12, 0+Fin_Height/8, Fin_Weight/3-100, Fin_Height/8 //WS_VSCROLL|WS_HSCROLL servono per lo scorrimento orizzontale e verticale, LBS_WANTKEYBOARDINPUT Avverte quando viene premuto un tasto su tastiera
+    CONTROL "Sottoponi", Bn_Sottoponi_Cifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 0+Fin_Weight/12 + Fin_Weight/3-80, 0+Fin_Height/8+ Fin_Height/20, 80, 30 //
+    CONTROL "Testo in chiaro", Id_Static_Lb2, "STATIC", SS_LEFT, 0+Fin_Weight/12, Fin_Height/4+20, 100, 10 //
+    CONTROL "", Id_Static_123_TChiaro_Cifra, "STATIC", SS_LEFT|WS_BORDER|SS_NOTIFY|WS_VSCROLL , 0+Fin_Weight/12 ,Fin_Height/8+Fin_Height/8+40, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Testo criptato", Id_Static_Lb3, "STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, Fin_Height/4+20, 100, 10 //
+    CONTROL "", Id_Static_123_TCifrato_Cifra, "STATIC", SS_LEFT|WS_BORDER|SS_NOTIFY|WS_VSCROLL , Fin_Weight/2+Fin_Weight/12, Fin_Height/4+40 , Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Cancella \n Ultimo", Bn_CancUltimo_Cifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 0+Fin_Weight/12, Fin_Height/4 + Fin_Height/6 + 60, 80, 30 //
+    CONTROL "Cripta", Bn_Cifra_Cifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/4-40, Fin_Height/4 + Fin_Height/6 +60, 80, 30 //
+    CONTROL "Cancella \n Tutto",Bn_CancTutto_Cifra, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 0+Fin_Weight/12 + Fin_Weight/3 - 80 , Fin_Height/4 + Fin_Height/6 +60, 80, 30 //
+    CONTROL "",Id_Static_123_Led1_Cifra , "STATIC", SS_BITMAP|WS_BORDER|WS_VISIBLE|SS_CENTERIMAGE, Fin_Weight/2+Fin_Weight/12, Fin_Height/4 + Fin_Height/6 + 60, 80, 30 //
+    CONTROL "",Id_Static_123_Led2_Cifra , "STATIC", SS_BITMAP|WS_BORDER|WS_VISIBLE|SS_CENTERIMAGE, Fin_Weight/4*3-40, Fin_Height/4 + Fin_Height/6 + 60, 80, 30 //
+    CONTROL "",Id_Static_123_Led3_Cifra , "STATIC", SS_BITMAP|WS_BORDER|WS_VISIBLE|SS_CENTERIMAGE, Fin_Weight/2+Fin_Weight/12 + Fin_Weight/3 - 80 , Fin_Height/4 + Fin_Height/6 + 60, 80, 30 //
+    CONTROL "Questo cifrario fu usato dal ministero della guerra italiano fino al 1917.\n\nSi tratta di un codice a repertorio ordinato che fa uso solo di tre cifre 1, 2, 3 combinate in gruppi da 1 a 5 cifre; il cifrario è destinato all'uso con telegrafo ottico, per segnalazioni visive con bandiere o lanterne. Alzando 1, 2 o 3 lanterne si segnala il numero corrispondente.\n\nE' molto interessante il fatto che lo stesso cifrario si trova in un documento austro-ungarico del 1915. Il fascicolo austriaco contiene una copia identica delle tabelle del cifrario con istruzioni. Questo fatto si può spiegare in relazione al fatto che Italia e Austria fino al 1915 furono alleate nella Triplice Alleanza e, colpevolemente, la segretezza dei cifrari non fu rispettata.",
+            Id_Static_Descrizione_123_Cifra, "STATIC", SS_LEFT|WS_BORDER, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+170, Fin_Weight-Fin_Weight/6, Fin_Weight/8-20 //
+
+END
+
+Fin_Cifr_Jeff DIALOG DISCARDABLE  0, 0, Fin_Weight, Fin_Height
+STYLE  DS_MODALFRAME| WS_CAPTION | WS_SYSMENU | WS_ICONIC | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_MINIMIZEBOX | WS_SIZEBOX
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "<---", Bn_Back_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 20, 15, 40, 20 //
+    CONTROL "Info", Bn_Info_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 80, 15, 40, 20 //
+    CONTROL "Modifica Rullo", Bn_Modifica_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, 0+Fin_Weight/12+130, 0+Fin_Height/8+Fin_Height/6+40, 80, 25 //
+    CONTROL "Testo in chiaro", Id_Static_Lb1, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Cifra_Jeff, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|ES_WANTRETURN, 0+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Testo criptato", Id_Static_Lb2, "STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8, 80, 10 //
+    CONTROL "", Tb_Decifra_Jeff, "EDIT", SS_LEFT|WS_BORDER|SS_NOTIFY|ES_MULTILINE|ES_UPPERCASE|WS_VSCROLL|ES_WANTRETURN , Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8+20, Fin_Weight/3, Fin_Height/6 //
+    CONTROL "Annulla", Bn_Clear_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+Fin_Height/6+40, 80, 25
+    CONTROL "Cripta --->", Bn_Cifra_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+20, 80, 25 //
+    CONTROL "<--- Decripta", Bn_Decifra_Jeff, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight/2-40, 0+Fin_Height/8+60, 80, 25
+    CONTROL "Chiave", Id_Static_Lb3, "STATIC", SS_LEFT, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+40, 40, 10 //
+    CONTROL "Seleziona", List_Chiave_Jeff, "LISTBOX", WS_VSCROLL|WS_HSCROLL|LBS_NOTIFY|WS_BORDER,  0+Fin_Weight/12+40, 0+Fin_Height/8+Fin_Height/6+40, 60, 100 //WS_VSCROLL|WS_HSCROLL servono per lo scorrimento orizzontale e verticale
+    CONTROL "Possibili combinazioni", Id_Static_Lb4,"STATIC", SS_LEFT, Fin_Weight/2+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+40, 50, 30 //
+    CONTROL "Decifra", List_Decripta_Jeff, "LISTBOX", WS_VSCROLL|WS_HSCROLL|LBS_NOTIFY|WS_BORDER|LBS_NOSEL , Fin_Weight/2+Fin_Weight/12+60, 0+Fin_Height/8+Fin_Height/6+40, Fin_Weight/3-60, 90 //WS_VSCROLL|WS_HSCROLL servono per lo scorrimento orizzontale e verticale
+    CONTROL "Thomas Jefferson propose questo strumento con il nome di wheel cipher (cifrario a ruote) nel 1790 per le comunicazioni diplomatiche, ma non lo utilizzò mai perché preferì un cifrario più semplice ma meno efficace.\n\nIl cifrario di Jefferson è un cifrario polialfabetico realizzato con un dispositivo meccanico basato su N ruote di legno inserite su un asse metallico, libere di ruotare indipendentemente l'una dall'altra. Sull'esterno di ciascuna ruota sono scritte le 26 lettere dell'alfabeto in ordine sparso e diverso da ruota a ruota, equidistanti l'una dall'altra.\n\nPer prima cosa si cerca sulla prima ruota la prima lettera del chiaro, quindi si cerca la seconda lettera sulla seconda ruota e la si posiziona accanto alla prima lettera, poi si cerca la terza lettera del chiaro sulla terza ruota e la si posiziona accanto alle prime due e così via finchè il chiaro apparirà perfettamente leggibile sulla riga scelta; come cifrato si sceglierà a caso un' altra riga spostata di m posizioni rispetto al chiaro e lo si trasmetterà.\n\nIl destinatario dovrà solo cercare ordinatamente le lettere del cifrato sulle ruote successive del cilindro e posizionarle tutte sulla stessa riga; a questo punto cercherà tra le altre 25 righe fino a trovare una riga con un messaggio leggibile.",
+            Id_Static_Descrizione_Jeff, "STATIC", SS_LEFT|WS_BORDER|WS_VSCROLL, 0+Fin_Weight/12, 0+Fin_Height/8+Fin_Height/6+150, Fin_Weight-Fin_Weight/6, Fin_Weight/7 //
+END
+
+Fin_Info_Jeff DIALOG DISCARDABLE  0, 0, 400, 120 //Dimensioni standard
+STYLE DS_MODALFRAME | WS_POPUP | DS_CENTERMOUSE |WS_CAPTION | WS_SYSMENU | SS_BITMAP
+CAPTION "Il rullo di Jefferson originale"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "",Id_Imm_Rullo , "STATIC", SS_BITMAP|WS_BORDER|WS_VISIBLE|SS_CENTERIMAGE, 0, 0, 400, 120 //
+
+END
+
+Fin_Mod_Rullo DIALOG DISCARDABLE  0, 0, Fin_Weight_Mod , Fin_Height/4*3
+STYLE DS_MODALFRAME | WS_POPUP | DS_CENTER |WS_CAPTION | WS_SYSMENU | SS_BITMAP
+CAPTION "Cifra o Decifra il tuo testo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL "Torna alle condizioni iniziali", Bn_Reset_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2-50, 20, 100, 20
+    CONTROL "<", Bn_Back_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2-60, 60, 20, 20
+    CONTROL "", Lb_NrRullo_Mod_Rullo, "STATIC", SS_CENTER|WS_BORDER|SS_NOTIFY, Fin_Weight_Mod/2-30, 60, 60, 20
+    CONTROL ">", Bn_Next_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2+40, 60, 20, 20
+    CONTROL "Casuale", Bn_Casuale_Mod_Rullo, "BUTTON",  BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2-30, 85, 60, 20
+    CONTROL "", List_Scelta_Mod_Rullo, "LISTBOX", WS_VSCROLL|WS_HSCROLL|LBS_NOTIFY|WS_BORDER|SS_CENTER, Fin_Weight_Mod/3-20, 110, 40, 100
+    CONTROL "", List_Visualizz_Mod_Rullo, "LISTBOX", WS_VSCROLL|WS_HSCROLL|WS_BORDER|SS_CENTER|LBS_NOSEL, Fin_Weight_Mod/3*2-20, 110, 40, 100
+    CONTROL "", Lb_NrRiga_Mod_Rullo, "STATIC", SS_CENTER|WS_BORDER|SS_NOTIFY, Fin_Weight_Mod/2-30, 210, 60, 20
+    CONTROL "Cancella ultimo", Bn_CancUltimo_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2-60, 250, 60, 20
+    CONTROL "Cancella tutto", Bn_CancTutto_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2, 250, 60, 20
+    CONTROL "Applica", Bn_Applica_Mod_Rullo, "BUTTON", BS_PUSHBUTTON|BN_CLICKED, Fin_Weight_Mod/2-60, 270, 120, 20
+END
+
+IDI_Sfondo1 BITMAP "Sfondo1.bmp"
+IDI_Sfondo2 BITMAP "Frase_Sfondo.bmp"
+IDI_Led_On BITMAP "LED_ON.bmp"
+IDI_Led_Off BITMAP "LED_OFF.bmp"
+IDI_Led_Default BITMAP "LED_DEFAULT.bmp"
+IDI_CMT_Image BITMAP "Bandiera_Italia_CMT.bmp"
+IDI_123_Image BITMAP "Bandiera_Italia_123.bmp"
+IDI_ADFMX_Image BITMAP "Bandiera_Germania_ADFMX.bmp"
+IDI_ADFGVX_Image BITMAP "Bandiera_Germania_ADFGVX.bmp"
+IDI_CBD_Image BITMAP "Bandiera_Francia.bmp"
+IDI_CampAust_Image BITMAP "Bandiera_Austria.bmp"
+IDI_GB_Image BITMAP "Bandiera_GB.bmp"
+IDI_USA_Image BITMAP "Bandiera_USA.bmp"
+IDI_Rullo BITMAP "Rullo.bmp"
+IDI_Logo ICON "Logo.ico"
